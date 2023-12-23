@@ -32,7 +32,7 @@ response = requests.get(url, headers=headers)
 
 # Creates Original dataframe from Response
 data = response.json()
-df_ramen = json_normalize(data["businesses"])
+df_ramen = pd.json_normalize(data["businesses"])
 
 # Adds additional column with ramen prices
 prices = [19.5,
