@@ -21,8 +21,6 @@ import altair as alt
 import os
 from pandas import json_normalize
 
-api_key = os.environ.get("YELP_API_KEY")
-
 #API request
 url = "https://api.yelp.com/v3/businesses/search?location=los%20angeles&term=ramen&sort_by=review_count&limit=50"
 headers = {
