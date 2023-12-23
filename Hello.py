@@ -18,15 +18,18 @@ import requests
 import pydeck as pdk
 import numpy as np
 import altair as alt
+import os
 from pandas import json_normalize
 
-api_key = st.secrets["YELP_API_KEY"]
+api_key = os.environ.get("YELP_API_KEY")
+if not api_key:
+    raise ValueError("API key is missing. Set the YELP_API_KEY environment variable.")
 
 #API request
 url = "https://api.yelp.com/v3/businesses/search?location=los%20angeles&term=ramen&sort_by=review_count&limit=50"
 headers = {
     "accept": "application/json",
-    "Authorization": "Bearer {api_key}"
+    "Authorization": (api_key),
 }
 response = requests.get(url, headers=headers)
 
