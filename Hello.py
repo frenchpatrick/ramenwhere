@@ -18,10 +18,13 @@ import requests
 import pydeck as pdk
 import numpy as np
 import altair as alt
+from dotenv import load_dotenv
 import os
 from pandas import json_normalize
 
-api_key = os.environ.get("YELP_API_KEY")
+load_dotenv()
+
+api_key = os.getenv("YELP_API_KEY")
 if not api_key:
     raise ValueError("API key is missing. Set the YELP_API_KEY environment variable.")
 
